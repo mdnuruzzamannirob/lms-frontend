@@ -19,7 +19,7 @@ const baseQuery = fetchBaseQuery({
 const baseQueryWithReauth: typeof baseQuery = async (
   args,
   api,
-  extraOptions
+  extraOptions,
 ) => {
   let result = await baseQuery(args, api, extraOptions);
 
@@ -27,7 +27,7 @@ const baseQueryWithReauth: typeof baseQuery = async (
     const refreshResult = await baseQuery(
       { url: "/auth/refresh-token", method: "POST" },
       api,
-      extraOptions
+      extraOptions,
     );
 
     if (refreshResult.data) {

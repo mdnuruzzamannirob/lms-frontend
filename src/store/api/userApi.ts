@@ -7,10 +7,7 @@ export const userApi = apiSlice.injectEndpoints({
       query: () => "/users/me",
       providesTags: [{ type: "User", id: "ME" }],
     }),
-    updateMe: builder.mutation<
-      ApiResponse<IUser>,
-      Partial<{ name: string }>
-    >({
+    updateMe: builder.mutation<ApiResponse<IUser>, Partial<{ name: string }>>({
       query: (body) => ({ url: "/users/me", method: "PATCH", body }),
       invalidatesTags: [{ type: "User", id: "ME" }],
     }),

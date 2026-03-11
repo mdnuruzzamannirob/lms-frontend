@@ -20,25 +20,24 @@ export const borrowApi = apiSlice.injectEndpoints({
       }),
       providesTags: [{ type: "Borrow", id: "MY" }],
     }),
-    getBorrows: builder.query<
-      ApiResponse<IBorrowRecord[]>,
-      QueryParams | void
-    >({
-      query: (params) => ({
-        url: "/borrows",
-        params: params || {},
-      }),
-      providesTags: (result) =>
-        result?.data
-          ? [
-              ...result.data.map(({ _id }) => ({
-                type: "Borrow" as const,
-                id: _id,
-              })),
-              { type: "Borrow", id: "LIST" },
-            ]
-          : [{ type: "Borrow", id: "LIST" }],
-    }),
+    getBorrows: builder.query<ApiResponse<IBorrowRecord[]>, QueryParams | void>(
+      {
+        query: (params) => ({
+          url: "/borrows",
+          params: params || {},
+        }),
+        providesTags: (result) =>
+          result?.data
+            ? [
+                ...result.data.map(({ _id }) => ({
+                  type: "Borrow" as const,
+                  id: _id,
+                })),
+                { type: "Borrow", id: "LIST" },
+              ]
+            : [{ type: "Borrow", id: "LIST" }],
+      },
+    ),
     getOverdueBorrows: builder.query<
       ApiResponse<IBorrowRecord[]>,
       QueryParams | void

@@ -33,10 +33,7 @@ export const memberApi = apiSlice.injectEndpoints({
       query: (id) => `/members/${id}`,
       providesTags: (_result, _error, id) => [{ type: "Member", id }],
     }),
-    createMember: builder.mutation<
-      ApiResponse<IMember>,
-      ICreateMemberPayload
-    >({
+    createMember: builder.mutation<ApiResponse<IMember>, ICreateMemberPayload>({
       query: (body) => ({ url: "/members", method: "POST", body }),
       invalidatesTags: [{ type: "Member", id: "LIST" }],
     }),

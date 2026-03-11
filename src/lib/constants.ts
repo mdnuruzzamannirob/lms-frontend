@@ -68,21 +68,6 @@ export const NAV_ITEMS = {
   user: [
     { label: "Dashboard", href: "/dashboard", icon: "LayoutDashboard" },
     { label: "Books", href: "/dashboard/books", icon: "BookOpen" },
-    { label: "My Borrows", href: "/dashboard/my-borrows", icon: "BookCopy" },
-    {
-      label: "My Reservations",
-      href: "/dashboard/my-reservations",
-      icon: "CalendarClock",
-    },
-    {
-      label: "My Fines",
-      href: "/dashboard/my-fines",
-      icon: "CircleDollarSign",
-    },
-    {
-      label: "My Payments",
-      href: "/dashboard/my-payments",
-      icon: "CreditCard",
-    },
+    { label: "My Library", href: "/dashboard/my-library", icon: "BookCopy" },
   ],
 } as const;

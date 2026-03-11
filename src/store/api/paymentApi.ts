@@ -9,20 +9,14 @@ import type {
 
 export const paymentApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getMyPayments: builder.query<
-      ApiResponse<IPayment[]>,
-      QueryParams | void
-    >({
+    getMyPayments: builder.query<ApiResponse<IPayment[]>, QueryParams | void>({
       query: (params) => ({
         url: "/payments/me",
         params: params || {},
       }),
       providesTags: [{ type: "Payment", id: "MY" }],
     }),
-    getPayments: builder.query<
-      ApiResponse<IPayment[]>,
-      QueryParams | void
-    >({
+    getPayments: builder.query<ApiResponse<IPayment[]>, QueryParams | void>({
       query: (params) => ({
         url: "/payments",
         params: params || {},

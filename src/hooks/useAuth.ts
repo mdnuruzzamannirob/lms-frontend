@@ -10,7 +10,7 @@ export function useAuth() {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const { user, token, isAuthenticated } = useAppSelector(
-    (state) => state.auth
+    (state) => state.auth,
   );
   const { data, isLoading, error } = useGetMeQuery(undefined, {
     skip: !token,

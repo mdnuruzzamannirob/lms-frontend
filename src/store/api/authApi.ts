@@ -26,26 +26,24 @@ export const authApi = apiSlice.injectEndpoints({
     logout: builder.mutation<ApiResponse<null>, void>({
       query: () => ({ url: "/auth/logout", method: "POST" }),
     }),
-    changePassword: builder.mutation<
-      ApiResponse<null>,
-      IChangePasswordPayload
-    >({
-      query: (body) => ({
-        url: "/auth/change-password",
-        method: "POST",
-        body,
-      }),
-    }),
-    forgotPassword: builder.mutation<
-      ApiResponse<null>,
-      IForgotPasswordPayload
-    >({
-      query: (body) => ({
-        url: "/auth/forgot-password",
-        method: "POST",
-        body,
-      }),
-    }),
+    changePassword: builder.mutation<ApiResponse<null>, IChangePasswordPayload>(
+      {
+        query: (body) => ({
+          url: "/auth/change-password",
+          method: "POST",
+          body,
+        }),
+      },
+    ),
+    forgotPassword: builder.mutation<ApiResponse<null>, IForgotPasswordPayload>(
+      {
+        query: (body) => ({
+          url: "/auth/forgot-password",
+          method: "POST",
+          body,
+        }),
+      },
+    ),
     verifyResetOtp: builder.mutation<
       ApiResponse<{ resetToken: string }>,
       IVerifyResetOtpPayload

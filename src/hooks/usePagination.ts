@@ -18,7 +18,7 @@ export function usePagination(defaultLimit = 10) {
       params.set("page", String(newPage));
       router.push(`${pathname}?${params.toString()}`);
     },
-    [pathname, router, searchParams]
+    [pathname, router, searchParams],
   );
 
   const setSearch = useCallback(
@@ -32,7 +32,7 @@ export function usePagination(defaultLimit = 10) {
       params.set("page", "1");
       router.push(`${pathname}?${params.toString()}`);
     },
-    [pathname, router, searchParams]
+    [pathname, router, searchParams],
   );
 
   return { page, limit, search, setPage, setSearch };

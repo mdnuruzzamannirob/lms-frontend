@@ -9,10 +9,7 @@ import type {
 
 export const categoryApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getCategories: builder.query<
-      ApiResponse<ICategory[]>,
-      QueryParams | void
-    >({
+    getCategories: builder.query<ApiResponse<ICategory[]>, QueryParams | void>({
       query: (params) => ({
         url: "/categories",
         params: params || {},

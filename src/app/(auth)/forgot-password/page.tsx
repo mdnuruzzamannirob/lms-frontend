@@ -132,9 +132,7 @@ export default function ForgotPasswordPage() {
               )}
             </div>
             <Button type="submit" className="w-full" disabled={isSending}>
-              {isSending && (
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              )}
+              {isSending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               Send Reset Code
             </Button>
           </form>
@@ -161,9 +159,7 @@ export default function ForgotPasswordPage() {
               )}
             </div>
             <Button type="submit" className="w-full" disabled={isVerifying}>
-              {isVerifying && (
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              )}
+              {isVerifying && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               Verify Code
             </Button>
           </form>
@@ -190,9 +186,7 @@ export default function ForgotPasswordPage() {
               )}
             </div>
             <Button type="submit" className="w-full" disabled={isResetting}>
-              {isResetting && (
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              )}
+              {isResetting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               Reset Password
             </Button>
           </form>

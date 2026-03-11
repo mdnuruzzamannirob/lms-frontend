@@ -12,8 +12,8 @@ export default function AuthLayout({
         <BookOpen className="mb-6 h-16 w-16" />
         <h1 className="mb-2 text-4xl font-bold">LibraHub</h1>
         <p className="text-center text-lg opacity-90">
-          A modern library management system for efficient book tracking,
-          member management, and seamless operations.
+          A modern library management system for efficient book tracking, member
+          management, and seamless operations.
         </p>
       </div>
       <div className="flex w-full items-center justify-center p-8 lg:w-1/2">
