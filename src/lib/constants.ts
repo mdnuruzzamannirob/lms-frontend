@@ -56,7 +56,11 @@ export const NAV_ITEMS = {
     { label: "Members", href: "/dashboard/members", icon: "Users" },
     { label: "Borrows", href: "/dashboard/borrows", icon: "BookCopy" },
     { label: "Fines", href: "/dashboard/fines", icon: "CircleDollarSign" },
-    { label: "Reservations", href: "/dashboard/reservations", icon: "CalendarClock" },
+    {
+      label: "Reservations",
+      href: "/dashboard/reservations",
+      icon: "CalendarClock",
+    },
     { label: "Payments", href: "/dashboard/payments", icon: "CreditCard" },
     { label: "Users", href: "/dashboard/users", icon: "UserCog" },
     { label: "Reports", href: "/dashboard/reports", icon: "BarChart3" },
@@ -65,8 +69,20 @@ export const NAV_ITEMS = {
     { label: "Dashboard", href: "/dashboard", icon: "LayoutDashboard" },
     { label: "Books", href: "/dashboard/books", icon: "BookOpen" },
     { label: "My Borrows", href: "/dashboard/my-borrows", icon: "BookCopy" },
-    { label: "My Reservations", href: "/dashboard/my-reservations", icon: "CalendarClock" },
-    { label: "My Fines", href: "/dashboard/my-fines", icon: "CircleDollarSign" },
-    { label: "My Payments", href: "/dashboard/my-payments", icon: "CreditCard" },
+    {
+      label: "My Reservations",
+      href: "/dashboard/my-reservations",
+      icon: "CalendarClock",
+    },
+    {
+      label: "My Fines",
+      href: "/dashboard/my-fines",
+      icon: "CircleDollarSign",
+    },
+    {
+      label: "My Payments",
+      href: "/dashboard/my-payments",
+      icon: "CreditCard",
+    },
   ],
 } as const;
