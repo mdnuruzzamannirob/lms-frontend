@@ -368,7 +368,12 @@ function EditMemberForm({
       </div>
       <div className="space-y-2">
         <Label>Max Books Allowed</Label>
-        <Input type="number" {...register("maxBooksAllowed", { setValueAs: (v: string) => v === "" ? undefined : Number(v) })} />
+        <Input
+          type="number"
+          {...register("maxBooksAllowed", {
+            setValueAs: (v: string) => (v === "" ? undefined : Number(v)),
+          })}
+        />
       </div>
       <Button type="submit" className="w-full" disabled={isLoading}>
         {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}

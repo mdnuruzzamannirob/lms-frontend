@@ -74,7 +74,10 @@ export default function BooksPage() {
                 <Plus className="mr-2 h-4 w-4" />
                 Add Book
               </Button>
-              <Dialog open={createDialogOpen} onOpenChange={setCreateDialogOpen}>
+              <Dialog
+                open={createDialogOpen}
+                onOpenChange={setCreateDialogOpen}
+              >
                 <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
                   <DialogHeader>
                     <DialogTitle>Add New Book</DialogTitle>

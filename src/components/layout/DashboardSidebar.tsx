@@ -134,22 +134,25 @@ export function DashboardSidebar() {
         <DropdownMenu>
           <DropdownMenuTrigger
             render={
-              <Button variant="ghost" className="w-full justify-start gap-3 px-3" />
+              <Button
+                variant="ghost"
+                className="w-full justify-start gap-3 px-3"
+              />
             }
           >
-              <Avatar className="h-7 w-7">
-                <AvatarFallback className="text-xs">
-                  {user ? getInitials(user.name) : "U"}
-                </AvatarFallback>
-              </Avatar>
-              <div className="flex flex-col items-start text-left">
-                <span className="text-sm font-medium">
-                  {user?.name || "User"}
-                </span>
-                <span className="text-xs text-muted-foreground capitalize">
-                  {user?.role || "user"}
-                </span>
-              </div>
+            <Avatar className="h-7 w-7">
+              <AvatarFallback className="text-xs">
+                {user ? getInitials(user.name) : "U"}
+              </AvatarFallback>
+            </Avatar>
+            <div className="flex flex-col items-start text-left">
+              <span className="text-sm font-medium">
+                {user?.name || "User"}
+              </span>
+              <span className="text-xs text-muted-foreground capitalize">
+                {user?.role || "user"}
+              </span>
+            </div>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start" className="w-56">
             <DropdownMenuItem
@@ -184,8 +187,8 @@ export function DashboardSidebar() {
       <div className="flex h-14 items-center gap-2 border-b px-4 lg:hidden">
         <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
           <SheetTrigger render={<Button variant="ghost" size="icon" />}>
-              <Menu className="h-5 w-5" />
-            </SheetTrigger>
+            <Menu className="h-5 w-5" />
+          </SheetTrigger>
           <SheetContent side="left" className="w-64 p-0">
             {sidebarContent}
           </SheetContent>

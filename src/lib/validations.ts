@@ -75,7 +75,9 @@ export const createBookSchema = z.object({
   category: z.string().min(1, "Category is required"),
   language: z.string().optional(),
   pages: z.number({ error: "Must be a number" }).positive().optional(),
-  totalCopies: z.number({ error: "Must be a number" }).min(1, "At least 1 copy required"),
+  totalCopies: z
+    .number({ error: "Must be a number" })
+    .min(1, "At least 1 copy required"),
   shelfLocation: z.string().optional(),
   description: z.string().optional(),
 });
@@ -108,7 +110,10 @@ export const updateMemberSchema = z.object({
   membershipType: z.enum(["standard", "premium", "student"]).optional(),
   phone: z.string().optional(),
   address: z.string().optional(),
-  maxBooksAllowed: z.number({ error: "Must be a number" }).positive().optional(),
+  maxBooksAllowed: z
+    .number({ error: "Must be a number" })
+    .positive()
+    .optional(),
   membershipExpiry: z.string().optional(),
   isActive: z.boolean().optional(),
 });

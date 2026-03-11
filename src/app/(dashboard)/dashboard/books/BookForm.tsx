@@ -177,7 +177,9 @@ export function BookForm({ book, onSuccess }: BookFormProps) {
           <Input
             id="publishedYear"
             type="number"
-            {...register("publishedYear", { setValueAs: (v: string) => v === "" ? undefined : Number(v) })}
+            {...register("publishedYear", {
+              setValueAs: (v: string) => (v === "" ? undefined : Number(v)),
+            })}
           />
         </div>
         <div className="space-y-2">
@@ -189,7 +191,13 @@ export function BookForm({ book, onSuccess }: BookFormProps) {
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="pages">Pages</Label>
-          <Input id="pages" type="number" {...register("pages", { setValueAs: (v: string) => v === "" ? undefined : Number(v) })} />
+          <Input
+            id="pages"
+            type="number"
+            {...register("pages", {
+              setValueAs: (v: string) => (v === "" ? undefined : Number(v)),
+            })}
+          />
         </div>
         <div className="space-y-2">
           <Label htmlFor="shelfLocation">Shelf Location</Label>

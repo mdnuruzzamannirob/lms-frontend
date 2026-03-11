@@ -1,6 +1,12 @@
 "use client";
 
-import { BarChart3, DollarSign, CheckCircle, Clock, XCircle } from "lucide-react";
+import {
+  BarChart3,
+  DollarSign,
+  CheckCircle,
+  Clock,
+  XCircle,
+} from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { PageHeader } from "@/components/shared/PageHeader";

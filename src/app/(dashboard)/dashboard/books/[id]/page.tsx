@@ -79,9 +79,7 @@ export default function BookDetailPage({
             )}
             {isAdmin && (
               <div className="w-full">
-                <label
-                  className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-input bg-background px-3 py-2 text-sm font-medium transition-colors hover:bg-muted"
-                >
+                <label className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-input bg-background px-3 py-2 text-sm font-medium transition-colors hover:bg-muted">
                   <Input
                     type="file"
                     accept="image/*"
