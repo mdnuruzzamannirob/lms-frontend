@@ -132,8 +132,11 @@ export function DashboardSidebar() {
       <Separator />
       <div className="p-4">
         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="w-full justify-start gap-3 px-3">
+          <DropdownMenuTrigger
+            render={
+              <Button variant="ghost" className="w-full justify-start gap-3 px-3" />
+            }
+          >
               <Avatar className="h-7 w-7">
                 <AvatarFallback className="text-xs">
                   {user ? getInitials(user.name) : "U"}
@@ -147,7 +150,6 @@ export function DashboardSidebar() {
                   {user?.role || "user"}
                 </span>
               </div>
-            </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start" className="w-56">
             <DropdownMenuItem
@@ -181,11 +183,9 @@ export function DashboardSidebar() {
       {/* Mobile header */}
       <div className="flex h-14 items-center gap-2 border-b px-4 lg:hidden">
         <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-          <SheetTrigger asChild>
-            <Button variant="ghost" size="icon">
+          <SheetTrigger render={<Button variant="ghost" size="icon" />}>
               <Menu className="h-5 w-5" />
-            </Button>
-          </SheetTrigger>
+            </SheetTrigger>
           <SheetContent side="left" className="w-64 p-0">
             {sidebarContent}
           </SheetContent>

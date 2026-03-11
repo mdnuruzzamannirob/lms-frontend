@@ -20,7 +20,6 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { SearchInput } from "@/components/shared/SearchInput";
@@ -70,20 +69,20 @@ export default function BooksPage() {
         icon={BookOpen}
         actions={
           isAdmin && (
-            <Dialog open={createDialogOpen} onOpenChange={setCreateDialogOpen}>
-              <DialogTrigger asChild>
-                <Button>
-                  <Plus className="mr-2 h-4 w-4" />
-                  Add Book
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-                <DialogHeader>
-                  <DialogTitle>Add New Book</DialogTitle>
-                </DialogHeader>
-                <BookForm onSuccess={() => setCreateDialogOpen(false)} />
-              </DialogContent>
-            </Dialog>
+            <>
+              <Button onClick={() => setCreateDialogOpen(true)}>
+                <Plus className="mr-2 h-4 w-4" />
+                Add Book
+              </Button>
+              <Dialog open={createDialogOpen} onOpenChange={setCreateDialogOpen}>
+                <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+                  <DialogHeader>
+                    <DialogTitle>Add New Book</DialogTitle>
+                  </DialogHeader>
+                  <BookForm onSuccess={() => setCreateDialogOpen(false)} />
+                </DialogContent>
+              </Dialog>
+            </>
           )
         }
       />

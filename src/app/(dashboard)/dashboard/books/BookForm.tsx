@@ -131,7 +131,7 @@ export function BookForm({ book, onSuccess }: BookFormProps) {
                   : book.category._id
                 : undefined
             }
-            onValueChange={(val) => setValue("category", val)}
+            onValueChange={(val) => setValue("category", val as string)}
           >
             <SelectTrigger>
               <SelectValue placeholder="Select category" />
@@ -157,7 +157,7 @@ export function BookForm({ book, onSuccess }: BookFormProps) {
             id="totalCopies"
             type="number"
             min={1}
-            {...register("totalCopies")}
+            {...register("totalCopies", { valueAsNumber: true })}
           />
           {errors.totalCopies && (
             <p className="text-sm text-destructive">
@@ -177,7 +177,7 @@ export function BookForm({ book, onSuccess }: BookFormProps) {
           <Input
             id="publishedYear"
             type="number"
-            {...register("publishedYear")}
+            {...register("publishedYear", { setValueAs: (v: string) => v === "" ? undefined : Number(v) })}
           />
         </div>
         <div className="space-y-2">
@@ -189,7 +189,7 @@ export function BookForm({ book, onSuccess }: BookFormProps) {
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="pages">Pages</Label>
-          <Input id="pages" type="number" {...register("pages")} />
+          <Input id="pages" type="number" {...register("pages", { setValueAs: (v: string) => v === "" ? undefined : Number(v) })} />
         </div>
         <div className="space-y-2">
           <Label htmlFor="shelfLocation">Shelf Location</Label>

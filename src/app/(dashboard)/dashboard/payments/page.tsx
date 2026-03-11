@@ -177,7 +177,7 @@ function ManualPaymentForm({ onSuccess }: { onSuccess: () => void }) {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <div className="space-y-2">
         <Label>Pending Fine *</Label>
-        <Select onValueChange={(val) => setValue("fineId", val)}>
+        <Select onValueChange={(val) => setValue("fineId", val as string)}>
           <SelectTrigger>
             <SelectValue placeholder="Select fine" />
           </SelectTrigger>

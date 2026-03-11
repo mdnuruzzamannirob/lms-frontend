@@ -306,7 +306,7 @@ function BorrowForm({ onSuccess }: { onSuccess: () => void }) {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <div className="space-y-2">
         <Label>Book *</Label>
-        <Select onValueChange={(val) => setValue("book", val)}>
+        <Select onValueChange={(val) => setValue("book", val as string)}>
           <SelectTrigger>
             <SelectValue placeholder="Select book" />
           </SelectTrigger>
@@ -324,7 +324,7 @@ function BorrowForm({ onSuccess }: { onSuccess: () => void }) {
       </div>
       <div className="space-y-2">
         <Label>Member *</Label>
-        <Select onValueChange={(val) => setValue("member", val)}>
+        <Select onValueChange={(val) => setValue("member", val as string)}>
           <SelectTrigger>
             <SelectValue placeholder="Select member" />
           </SelectTrigger>

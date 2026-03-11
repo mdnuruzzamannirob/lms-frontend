@@ -79,7 +79,9 @@ export default function BookDetailPage({
             )}
             {isAdmin && (
               <div className="w-full">
-                <label className="cursor-pointer">
+                <label
+                  className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-input bg-background px-3 py-2 text-sm font-medium transition-colors hover:bg-muted"
+                >
                   <Input
                     type="file"
                     accept="image/*"
@@ -87,17 +89,8 @@ export default function BookDetailPage({
                     onChange={handleCoverUpload}
                     disabled={isUploading}
                   />
-                  <Button
-                    variant="outline"
-                    className="w-full"
-                    disabled={isUploading}
-                    asChild
-                  >
-                    <span>
-                      <Upload className="mr-2 h-4 w-4" />
-                      {isUploading ? "Uploading..." : "Upload Cover"}
-                    </span>
-                  </Button>
+                  <Upload className="h-4 w-4" />
+                  {isUploading ? "Uploading..." : "Upload Cover"}
                 </label>
               </div>
             )}

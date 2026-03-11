@@ -1,6 +1,6 @@
 "use client";
 
-import { BarChart3 } from "lucide-react";
+import { BarChart3, DollarSign, CheckCircle, Clock, XCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { PageHeader } from "@/components/shared/PageHeader";
@@ -98,18 +98,22 @@ export default function ReportsPage() {
           <StatsCard
             title="Total Revenue"
             value={formatCurrency(revenue.totalRevenue)}
+            icon={DollarSign}
           />
           <StatsCard
             title="Paid Fines"
             value={formatCurrency(revenue.paidFines)}
+            icon={CheckCircle}
           />
           <StatsCard
             title="Pending Fines"
             value={formatCurrency(revenue.pendingFines)}
+            icon={Clock}
           />
           <StatsCard
             title="Waived Fines"
             value={formatCurrency(revenue.waivedFines)}
+            icon={XCircle}
           />
         </div>
       )}
@@ -174,7 +178,13 @@ export default function ReportsPage() {
                       cx="50%"
                       cy="50%"
                       labelLine={false}
-                      label={({ category, count }) => `${category} (${count})`}
+                      label={(props) => {
+                        const { category, count } = props as unknown as {
+                          category: string;
+                          count: number;
+                        };
+                        return `${category} (${count})`;
+                      }}
                       outerRadius={120}
                       dataKey="count"
                       nameKey="category"

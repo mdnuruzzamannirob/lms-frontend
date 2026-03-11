@@ -233,7 +233,7 @@ function CreateMemberForm({ onSuccess }: { onSuccess: () => void }) {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <div className="space-y-2">
         <Label>User *</Label>
-        <Select onValueChange={(val) => setValue("user", val)}>
+        <Select onValueChange={(val) => setValue("user", val as string)}>
           <SelectTrigger>
             <SelectValue placeholder="Select user" />
           </SelectTrigger>
@@ -368,7 +368,7 @@ function EditMemberForm({
       </div>
       <div className="space-y-2">
         <Label>Max Books Allowed</Label>
-        <Input type="number" {...register("maxBooksAllowed")} />
+        <Input type="number" {...register("maxBooksAllowed", { setValueAs: (v: string) => v === "" ? undefined : Number(v) })} />
       </div>
       <Button type="submit" className="w-full" disabled={isLoading}>
         {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
