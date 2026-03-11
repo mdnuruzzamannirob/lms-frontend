@@ -118,9 +118,7 @@ export default function BorrowsPage() {
       <Tabs defaultValue="all">
         <TabsList>
           <TabsTrigger value="all">All Borrows</TabsTrigger>
-          <TabsTrigger value="overdue">
-            Overdue ({overdue.length})
-          </TabsTrigger>
+          <TabsTrigger value="overdue">Overdue ({overdue.length})</TabsTrigger>
         </TabsList>
 
         <TabsContent value="all" className="space-y-4">
@@ -333,8 +331,7 @@ function BorrowForm({ onSuccess }: { onSuccess: () => void }) {
           <SelectContent>
             {members.map((m) => (
               <SelectItem key={m._id} value={m._id}>
-                {m.membershipId} —{" "}
-                {(m.user as IUser)?.name || "Unknown"}
+                {m.membershipId} — {(m.user as IUser)?.name || "Unknown"}
               </SelectItem>
             ))}
           </SelectContent>

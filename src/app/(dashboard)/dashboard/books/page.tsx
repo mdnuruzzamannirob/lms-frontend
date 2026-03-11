@@ -112,7 +112,9 @@ export default function BooksPage() {
                   <TableHead>Authors</TableHead>
                   <TableHead>Category</TableHead>
                   <TableHead>Available</TableHead>
-                  {isAdmin && <TableHead className="text-right">Actions</TableHead>}
+                  {isAdmin && (
+                    <TableHead className="text-right">Actions</TableHead>
+                  )}
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -141,7 +143,7 @@ export default function BooksPage() {
                             size="sm"
                             onClick={() =>
                               window.location.assign(
-                                `/dashboard/books/${book._id}`
+                                `/dashboard/books/${book._id}`,
                               )
                             }
                           >

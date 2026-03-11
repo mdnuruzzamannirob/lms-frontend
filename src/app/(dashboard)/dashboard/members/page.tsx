@@ -124,9 +124,7 @@ export default function MembersPage() {
                     <TableCell className="font-medium">
                       {member.membershipId}
                     </TableCell>
-                    <TableCell>
-                      {(member.user as IUser)?.name || "—"}
-                    </TableCell>
+                    <TableCell>{(member.user as IUser)?.name || "—"}</TableCell>
                     <TableCell>
                       <StatusBadge status={member.membershipType} />
                     </TableCell>
@@ -176,7 +174,10 @@ export default function MembersPage() {
         </DialogContent>
       </Dialog>
 
-      <Dialog open={!!editMember} onOpenChange={(open) => !open && setEditMember(null)}>
+      <Dialog
+        open={!!editMember}
+        onOpenChange={(open) => !open && setEditMember(null)}
+      >
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Edit Member</DialogTitle>
@@ -255,7 +256,7 @@ function CreateMemberForm({ onSuccess }: { onSuccess: () => void }) {
           onValueChange={(val) =>
             setValue(
               "membershipType",
-              val as "standard" | "premium" | "student"
+              val as "standard" | "premium" | "student",
             )
           }
         >
@@ -341,7 +342,7 @@ function EditMemberForm({
           onValueChange={(val) =>
             setValue(
               "membershipType",
-              val as "standard" | "premium" | "student"
+              val as "standard" | "premium" | "student",
             )
           }
         >

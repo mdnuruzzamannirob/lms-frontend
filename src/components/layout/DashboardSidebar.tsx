@@ -82,7 +82,7 @@ function NavLinks({
               "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
               isActive
                 ? "bg-primary text-primary-foreground"
-                : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                : "text-muted-foreground hover:bg-accent hover:text-accent-foreground",
             )}
           >
             {Icon && <Icon className="h-4 w-4" />}
@@ -134,10 +134,7 @@ export function DashboardSidebar() {
       <div className="p-4">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button
-              variant="ghost"
-              className="w-full justify-start gap-3 px-3"
-            >
+            <Button variant="ghost" className="w-full justify-start gap-3 px-3">
               <Avatar className="h-7 w-7">
                 <AvatarFallback className="text-xs">
                   {user ? getInitials(user.name) : "U"}
@@ -155,9 +152,7 @@ export function DashboardSidebar() {
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start" className="w-56">
             <DropdownMenuItem
-              onClick={() =>
-                setTheme(theme === "dark" ? "light" : "dark")
-              }
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             >
               {theme === "dark" ? (
                 <Sun className="mr-2 h-4 w-4" />

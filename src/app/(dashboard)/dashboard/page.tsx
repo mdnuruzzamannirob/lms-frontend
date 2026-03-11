@@ -116,9 +116,7 @@ export default function DashboardPage() {
                 </TableBody>
               </Table>
             ) : (
-              <p className="text-sm text-muted-foreground">
-                No recent borrows
-              </p>
+              <p className="text-sm text-muted-foreground">No recent borrows</p>
             )}
           </CardContent>
         </Card>
@@ -160,9 +158,7 @@ export default function DashboardPage() {
                 </TableBody>
               </Table>
             ) : (
-              <p className="text-sm text-muted-foreground">
-                No recent returns
-              </p>
+              <p className="text-sm text-muted-foreground">No recent returns</p>
             )}
           </CardContent>
         </Card>

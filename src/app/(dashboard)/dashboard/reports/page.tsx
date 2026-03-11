@@ -174,9 +174,7 @@ export default function ReportsPage() {
                       cx="50%"
                       cy="50%"
                       labelLine={false}
-                      label={({ category, count }) =>
-                        `${category} (${count})`
-                      }
+                      label={({ category, count }) => `${category} (${count})`}
                       outerRadius={120}
                       dataKey="count"
                       nameKey="category"
@@ -208,8 +206,7 @@ export default function ReportsPage() {
                 <ResponsiveContainer width="100%" height={350}>
                   <BarChart
                     data={popularBooks.map((pb) => ({
-                      title:
-                        pb.book?.title?.substring(0, 20) || "Unknown",
+                      title: pb.book?.title?.substring(0, 20) || "Unknown",
                       borrowCount: pb.borrowCount,
                     }))}
                   >
@@ -239,9 +236,7 @@ export default function ReportsPage() {
                     <TableRow>
                       <TableHead>Member ID</TableHead>
                       <TableHead>Name</TableHead>
-                      <TableHead className="text-right">
-                        Borrows
-                      </TableHead>
+                      <TableHead className="text-right">Borrows</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>

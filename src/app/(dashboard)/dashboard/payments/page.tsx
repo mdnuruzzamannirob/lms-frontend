@@ -43,7 +43,10 @@ import {
   useRecordManualPaymentMutation,
 } from "@/store/api/paymentApi";
 import { useGetFinesQuery } from "@/store/api/fineApi";
-import { manualPaymentSchema, type ManualPaymentFormData } from "@/lib/validations";
+import {
+  manualPaymentSchema,
+  type ManualPaymentFormData,
+} from "@/lib/validations";
 import { formatCurrency, formatDate } from "@/lib/utils";
 import type { IMember, IFine, IUser } from "@/types";
 
@@ -143,9 +146,12 @@ export default function PaymentsPage() {
 
 function ManualPaymentForm({ onSuccess }: { onSuccess: () => void }) {
   const [recordPayment, { isLoading }] = useRecordManualPaymentMutation();
-  const { data: finesData } = useGetFinesQuery({ status: "pending" } as Record<string, string>);
+  const { data: finesData } = useGetFinesQuery({ status: "pending" } as Record<
+    string,
+    string
+  >);
   const pendingFines = (finesData?.data || []).filter(
-    (f) => f.status === "pending"
+    (f) => f.status === "pending",
   );
 
   const {
@@ -189,7 +195,9 @@ function ManualPaymentForm({ onSuccess }: { onSuccess: () => void }) {
       </div>
       <div className="space-y-2">
         <Label>Payment Method *</Label>
-        <Select onValueChange={(val) => setValue("method", val as "cash" | "card")}>
+        <Select
+          onValueChange={(val) => setValue("method", val as "cash" | "card")}
+        >
           <SelectTrigger>
             <SelectValue placeholder="Select method" />
           </SelectTrigger>

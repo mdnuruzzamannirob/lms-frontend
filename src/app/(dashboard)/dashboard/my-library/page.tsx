@@ -1,6 +1,11 @@
 "use client";
 
-import { BookCopy, CalendarClock, CircleDollarSign, CreditCard } from "lucide-react";
+import {
+  BookCopy,
+  CalendarClock,
+  CircleDollarSign,
+  CreditCard,
+} from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -18,12 +23,30 @@ import { EmptyState } from "@/components/shared/EmptyState";
 import { PageLoader } from "@/components/shared/LoadingSpinner";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { useRequireAuth } from "@/hooks/useAuth";
-import { useGetMyBorrowsQuery, useRenewBookMutation } from "@/store/api/borrowApi";
+import {
+  useGetMyBorrowsQuery,
+  useRenewBookMutation,
+} from "@/store/api/borrowApi";
 import { useGetMyFinesQuery } from "@/store/api/fineApi";
-import { useGetMyReservationsQuery, useCreateReservationMutation, useCancelReservationMutation } from "@/store/api/reservationApi";
-import { useGetMyPaymentsQuery, useCreateStripePaymentMutation } from "@/store/api/paymentApi";
+import {
+  useGetMyReservationsQuery,
+  useCreateReservationMutation,
+  useCancelReservationMutation,
+} from "@/store/api/reservationApi";
+import {
+  useGetMyPaymentsQuery,
+  useCreateStripePaymentMutation,
+} from "@/store/api/paymentApi";
 import { formatCurrency, formatDate } from "@/lib/utils";
-import type { IBook, IMember, IUser, IBorrowRecord, IFine, IReservation, IPayment } from "@/types";
+import type {
+  IBook,
+  IMember,
+  IUser,
+  IBorrowRecord,
+  IFine,
+  IReservation,
+  IPayment,
+} from "@/types";
 
 export default function MyLibraryPage() {
   useRequireAuth();
@@ -321,9 +344,7 @@ function MyPayments() {
                   <TableCell className="font-medium">
                     {formatCurrency(payment.amount)}
                   </TableCell>
-                  <TableCell className="capitalize">
-                    {payment.method}
-                  </TableCell>
+                  <TableCell className="capitalize">{payment.method}</TableCell>
                   <TableCell>
                     <StatusBadge status={payment.status} />
                   </TableCell>
