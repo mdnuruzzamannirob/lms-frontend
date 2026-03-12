@@ -18,6 +18,7 @@ import {
   Moon,
   Sun,
   Menu,
+  Settings,
 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -37,6 +38,7 @@ import { NAV_ITEMS } from "@/lib/constants";
 import { useAuth } from "@/hooks/useAuth";
 import { useAppDispatch } from "@/store";
 import { logout } from "@/store/features/authSlice";
+import { apiSlice } from "@/store/api/apiSlice";
 import { useLogoutMutation } from "@/store/api/authApi";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
@@ -52,6 +54,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   CreditCard,
   UserCog,
   BarChart3,
+  Settings,
 };
 
 function NavLinks({
@@ -108,9 +111,11 @@ export function DashboardSidebar() {
     try {
       await logoutApi().unwrap();
     } catch {
-      // Continue with local logout even if API fails
+      // Continue with local logout even if API call fails
     }
     dispatch(logout());
+    // Clear all RTK Query cached data so stale user data doesn't persist
+    dispatch(apiSlice.util.resetApiState());
     toast.success("Logged out successfully");
     router.push("/login");
   };

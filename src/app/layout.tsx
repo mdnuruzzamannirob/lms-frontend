@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "sonner";
 import { ReduxProvider } from "@/components/providers/ReduxProvider";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { cn } from "@/lib/utils";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -28,7 +29,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning
+        className={cn("antialiased", geistSans.className, geistMono.variable)}
       >
         <ReduxProvider>
           <ThemeProvider>

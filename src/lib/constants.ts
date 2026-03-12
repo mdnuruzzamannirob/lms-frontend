@@ -64,10 +64,12 @@ export const NAV_ITEMS = {
     { label: "Payments", href: "/dashboard/payments", icon: "CreditCard" },
     { label: "Users", href: "/dashboard/users", icon: "UserCog" },
     { label: "Reports", href: "/dashboard/reports", icon: "BarChart3" },
+    { label: "Settings", href: "/dashboard/settings", icon: "Settings" },
   ],
   user: [
     { label: "Dashboard", href: "/dashboard", icon: "LayoutDashboard" },
     { label: "Books", href: "/dashboard/books", icon: "BookOpen" },
     { label: "My Library", href: "/dashboard/my-library", icon: "BookCopy" },
+    { label: "Settings", href: "/dashboard/settings", icon: "Settings" },
   ],
 } as const;

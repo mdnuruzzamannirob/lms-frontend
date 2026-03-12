@@ -8,12 +8,17 @@ import { setUser, logout } from "@/store/features/authSlice";
 
 export function useAuth() {
   const dispatch = useAppDispatch();
-  const router = useRouter();
   const { user, token, isAuthenticated } = useAppSelector(
     (state) => state.auth,
   );
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const { data, isLoading, error } = useGetMeQuery(undefined, {
-    skip: !token,
+    skip: !token || !mounted,
   });
 
   useEffect(() => {
@@ -27,7 +32,13 @@ export function useAuth() {
 
   const isAdmin = user?.role === "admin";
 
-  return { user, isAuthenticated, isLoading, isAdmin, token };
+  return {
+    user,
+    isAuthenticated,
+    isLoading: isLoading && mounted,
+    isAdmin,
+    token,
+  };
 }
 
 export function useRequireAuth(requiredRole?: "admin" | "user") {

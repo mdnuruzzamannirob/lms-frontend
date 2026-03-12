@@ -17,14 +17,19 @@ export const authApi = apiSlice.injectEndpoints({
     login: builder.mutation<ApiResponse<IAuthResponse>, ILoginPayload>({
       query: (body) => ({ url: "/auth/login", method: "POST", body }),
     }),
-    register: builder.mutation<ApiResponse<null>, IRegisterPayload>({
+    register: builder.mutation<ApiResponse<IAuthResponse>, IRegisterPayload>({
       query: (body) => ({ url: "/auth/register", method: "POST", body }),
     }),
-    verifyEmail: builder.mutation<ApiResponse<null>, IVerifyEmailPayload>({
+    verifyEmail: builder.mutation<
+      ApiResponse<IAuthResponse>,
+      IVerifyEmailPayload
+    >({
       query: (body) => ({ url: "/auth/verify-email", method: "POST", body }),
     }),
     logout: builder.mutation<ApiResponse<null>, void>({
       query: () => ({ url: "/auth/logout", method: "POST" }),
+      // Invalidate current user cache on logout
+      invalidatesTags: [{ type: "User", id: "ME" }],
     }),
     changePassword: builder.mutation<ApiResponse<null>, IChangePasswordPayload>(
       {

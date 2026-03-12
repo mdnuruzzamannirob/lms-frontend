@@ -82,8 +82,6 @@ export interface IResendOtpPayload {
 
 export interface IAuthResponse {
   accessToken: string;
-  refreshToken: string;
-  user: IUser;
 }
 
 // ==================== Category ====================
@@ -143,7 +141,7 @@ export interface ICreateBookPayload {
   description?: string;
 }
 
-export interface IUpdateBookPayload extends Partial<ICreateBookPayload> {}
+export type IUpdateBookPayload = Partial<ICreateBookPayload>;
 
 // ==================== Member ====================
 
